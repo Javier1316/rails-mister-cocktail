@@ -2,5 +2,8 @@
 <%= f.input :name %>
 <%# <%= f.input :photo %> 
 <%# <%= f.input :photo_cache, as: :hidden %> 
-<%= f.submit "Add Cocktail", class: "button-ingredient"%>
+<%= f.submit "➕ Add Cocktail", class: "button-ingredient btn btn-success"%>
 <% end %>
+<br>
+<br>
+<%= link_to '🏠 home', cocktails_path(@cocktail), class: "btn btn-info" %>

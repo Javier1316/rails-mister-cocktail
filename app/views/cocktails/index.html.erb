@@ -1,8 +1,20 @@
 
+<div class="container mt-5">
+<h1>My Cocktails</h1>
 
-<% @cocktails.each do |c| %>
-  <%= link_to c.name, cocktail_path(c) %>
-<% end %>
+  <div class="cardbox ">
+    <% @cocktails.each do |c| %>
+    <div class="card col-xs-8 col-sm-6 col-md-4 col-lg-4 mt-3 pb-2">
+      <%= c.name %> 
+      <%= link_to "Details", cocktail_path(c), class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
 
+
+  
 <br>
-<%= link_to 'Add Cocktail', new_cocktail_path(@cocktail) %>
+<br>
+
+<%= link_to '➕ Add Cocktail', new_cocktail_path(@cocktail), class: "btn btn-success"%>
+</div>  

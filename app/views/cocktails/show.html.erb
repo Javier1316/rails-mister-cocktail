@@ -1,17 +1,16 @@
 <h1><%= @cocktail.name %></h1>
 
 <% @cocktail.doses.each do |dose| %>
-<li><span style="color: #E91E63"><%= dose.ingredient.name %></span> (<%= dose.description %>)
-  <ul>
-    <li><%= link_to 'Delete', dose_path(dose), method: :delete %></li>
-  </ul>
+<li><span style="color: #E91E63"><%= dose.ingredient.name %></span>  <%= link_to '🗑️ Delete', dose_path(dose), class: "btn btn-warning", method: :delete %></li>
+<li>Description: <%= dose.description %>  </li>
+<br>
 <% end %>
 
 <%= simple_form_for [@cocktail, @dose] do |f| %>
 <%= f.association :ingredient, collection: Ingredient.order('name ASC') %>
 <%= f.input :description, label: 'Amount' %>
-<%= f.submit "Add Ingredient", class: "button-ingredient" %>
+<%= f.submit "➕ Add Ingredient", class: "button-ingredient btn btn-success" %>
 <% end %>
 
 <br>
-<%= link_to 'home', cocktails_path(@cocktail) %>
+<%= link_to '🏠 home', cocktails_path(@cocktail), class: "btn btn-info"%>
